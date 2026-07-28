@@ -54,5 +54,21 @@ jobs:
       - name: Executar container
         run: |
           docker run -d --name fastapi-container -p 8000:8000 fastapi-app:latest
+
+      - name: Run Docker container
+        run: |
+          docker run -d \
+            --name pokemon-container \
+            -p 8000:8000 \
+            pokemon-api:latest
+
+      - name: Test API inside container
+        run: |
+          curl http://localhost:8000
+
+      - name: Show container logs if failed
+        if: failure()
+        run: |
+          docker logs pokemon-container
       
       
