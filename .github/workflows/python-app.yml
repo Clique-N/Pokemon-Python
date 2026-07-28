@@ -41,19 +41,18 @@ jobs:
 
       - name: Run tests (placeholder)
         run: poetry run pytest -v
-
+        
   docker:
     runs-on: ubuntu-latest
     needs: fastapi-test
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Code checkout
+        uses: actions/checkout@v4
 
-      - name: Imagem Docker
-        run: docker build -t fastapi-app:latest .
-
-      - name: Executar container
+      - name: Build Docker image
         run: |
-          docker run -d --name fastapi-container -p 8000:8000 fastapi-app:latest
+          docker build -t pokemon-api:latest .
 
       - name: Run Docker container
         run: |
@@ -61,6 +60,10 @@ jobs:
             --name pokemon-container \
             -p 8000:8000 \
             pokemon-api:latest
+
+          sleep 10
+
+          docker ps
 
       - name: Test API inside container
         run: |
