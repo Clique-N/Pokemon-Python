@@ -40,7 +40,7 @@ jobs:
         run: poetry install --no-interaction --no-root
 
       - name: Run tests (placeholder)
-        run: poetry run pytest -v
+        run: poetry run pytest --cov=. --cov-report=term-missing --cov-fail-under=85
         
   docker:
     runs-on: ubuntu-latest
