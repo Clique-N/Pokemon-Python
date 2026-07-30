@@ -1,7 +1,7 @@
-# Variáveis de ambiente
+# Environment
 .env
 
-# Banco local
+# Local database files
 *.db
 *.sqlite
 
@@ -10,14 +10,14 @@ __pycache__/
 *.py[cod]
 *.pyo
 
-# Ambiente virtual
+# Virutal environment
 .venv/
 venv/
 
 # Poetry
 poetry.toml
 
-# Testes
+# Tests
 .pytest_cache/
 .coverage
 htmlcov/
@@ -26,5 +26,5 @@ htmlcov/
 .vscode/
 .idea/
 
-# Sistema
+# System files
 .DS_Store
